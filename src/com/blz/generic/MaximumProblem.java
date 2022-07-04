@@ -3,7 +3,7 @@ package com.blz.generic;
 public class MaximumProblem {
     public static void main(String[] args) {
         System.out.println("Welcome to generic Program");
-        Integer a = 3, b = 8, c =7;
+        Integer a = 3, b = 6, c =7;
         testMaximum (a, b, c);
     }
 
