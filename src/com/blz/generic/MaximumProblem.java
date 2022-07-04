@@ -16,12 +16,12 @@ public class MaximumProblem<T extends Comparable> {
     public static void main(String[] args) {
         System.out.println("Welcome to generic Program");
 
-        new MaximumProblem<Integer>(3, 6, 7, 9, 2).print();
-        new MaximumProblem<Float>(2.3f, 7.8f, 6.7f, 5.5f, 8.9f).print();
-        new MaximumProblem<String>("Apple", "Peach", "Banana", "Mango", "Kiwi").print();
+        new MaximumProblem<Integer>(3, 6, 7, 9, 2).testMaximum();
+        new MaximumProblem<Float>(2.3f, 7.8f, 6.7f, 5.5f, 8.9f).testMaximum();
+        new MaximumProblem<String>("Apple", "Peach", "Banana", "Mango", "Kiwi").testMaximum();
     }
 
-    public static <T extends Comparable<T>> T maximum(T x, T y, T z, T l, T m) {
+    public static <T extends Comparable> T maximum(T x, T y, T z, T l, T m) {
         T max = x;
         if (y.compareTo(max) > 0)
             max = y;
@@ -31,12 +31,15 @@ public class MaximumProblem<T extends Comparable> {
             max = l;
         if (m.compareTo(max) > 0)
             max = m;
-
-        System.out.println("Maximum Number : " + max);
+        
         return max;
     }
 
-    public void print() {
-        maximum(x, y, z, l, m);
+    public void testMaximum() {
+        T max = MaximumProblem.maximum(x, y, z, l, m);
+        printMax(max);
+    }
+    public static <T> void printMax(T max){
+        System.out.println("Maximum Number : " + max);
     }
 }
